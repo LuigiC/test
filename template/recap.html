@@ -1,4 +1,5 @@
-<h2 class="confirm-title">Do you want to confirm your order?</h2>
+<h2 class="confirm-title">Do you want to confirm your order? </h2>
+<h3 class="confirm-title">Customer #: {{::cid}}</h3>
 
 <div ng-if="!successOrder">
 	<ul class="margin-30">
@@ -7,7 +8,7 @@
 
 	<div class="row center-xs">
 		<div class="col-xs-10">
-			<button class="checkButton" ng-click="">back</button>
+			<button class="checkButton" ng-click="model.backToCatalogue()">back</button>
 			<button class="checkButton" ng-click="model.checkoutOrder()">confirm</button>
 		</div>
 	</div>

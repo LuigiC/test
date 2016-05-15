@@ -5,7 +5,6 @@
 
 		$scope.model.checkoutOrder = function(){
 			var cid = $state.params.cid;
-			var orderId = Math.floor(Math.random()*10000);
 
 			orderService.submitOrder(cid, $scope.model.cart).then(function(response){
 				$scope.successOrder = true;
@@ -14,8 +13,18 @@
 			});
 		}
 
+		$scope.model.backToCatalogue = function(){
+			$state.go('catalogueOffers', {
+				cid : $state.params.cid
+			})
+		}
+
 		function init(){
-			console.log("checkout INIT",$state.params.products);
+			if(!$state.params.products || $state.params.products.length === 0){
+				$state.go('catalogueOffers',{
+					cid : $state.params.cid
+				});
+			}
 			$scope.model.cart = $state.params.products;
 		}
 		init();

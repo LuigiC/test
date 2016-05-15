@@ -1,6 +1,6 @@
 (function(){
 	'use strict';
-	angular.module('skyTest').controller('basketCtrl', function($scope){
+	angular.module('skyTest').controller('basketCtrl', function($scope, $state){
 		$scope.model = $scope.model || {};
 
 		$scope.total = function(){
@@ -18,7 +18,8 @@
 		}
 
 		function init(){
-			$scope.model.cart = $scope.model.cart || [];
+			$scope.model.cart = $scope.model.cart || $state.params.cart || [];
+			$scope.cid = $state.params.cid;
 		}
 		init();
 	});

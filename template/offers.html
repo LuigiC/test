@@ -7,7 +7,7 @@
 					<div>
 						<p>{{::sport.name}}</p>
 						<p>{{:: sport.price | currency}}</p>
-						<input type="checkbox" ng-change="addToCart(sport)" ng-model="sports.$index">
+						<input type="checkbox" ng-change="addToCart(sport)" ng-model="sports[$index]">
 					</div>
 				</li>
 			</div>
@@ -21,7 +21,7 @@
 					<div>
 						<p>{{::new.name}}</p>
 						<p>{{:: new.price | currency}}</p>
-						<input type="checkbox" ng-change="addToCart(new)" ng-model="new.$index">
+						<input type="checkbox" ng-change="addToCart(new)" ng-model="new[$index]">
 					</div>
 				</li>
 			</div>

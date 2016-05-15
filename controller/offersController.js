@@ -11,7 +11,7 @@
 			catalogueService.getCatalogue(cid, lid).then(function(response){
 				$scope.catalogue = response.data;
 			}, function(response){
-				console.log('error getCatalogue');
+				$scope.error = response.data.error;
 			});
 		}
 
@@ -21,7 +21,6 @@
 				getCatalogue($state.params.cid, lid);
 			},function(response){
 				$scope.error = response.data.error;
-				console.log('request errata');
 			});
 		}
 		init();

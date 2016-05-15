@@ -23,13 +23,11 @@ var error = function(description){
 }
 
 server.get('/skyTest', function(request, response){
-	console.log('GET CatalogueFallback');
 	response.sendFile('/main.html', {root : serverRoot});
 })
 
 //I'm calling with CustomerID and send to view the LocationID
 server.get('/catalogue/:cid', function(request,response){
-	console.log('GET con il CID');
 	var cid = request.params.cid;
 	
 	var customerInfo = dbLocId.filter(function(e){;
@@ -43,14 +41,12 @@ server.get('/catalogue/:cid', function(request,response){
 	if(!customerInfo || customerInfo.length === 0){
 		response.status(404).send(JSON.stringify({'error' : 'There was a problem retrieving the customer information'}));
 	}else{
-		console.log('error cid');
 		response.send(JSON.stringify(customerInfo[0]));
 	}
 });
 
 //Thanks to CustomerID & LocationID I retrieve the products to visualize to catalogue
 server.get('/catalogue/:cid/:lid', function(request,response){
-	console.log('GET con il CID + LID');
 	response.setHeader('Content-Type', 'application/json');
 
 	var lid = request.params.lid;
@@ -65,9 +61,15 @@ server.get('/catalogue/:cid/:lid', function(request,response){
 	}
 });
 
+//When customer confirm the cart, I stored the order in DB (here there is no DB so, I only send a OK message)
 server.post('/order/:cid/:orderId', function(request,response){
+	var errorDB = false;
 	response.setHeader('Content-Type', 'application/json');
-	response.send(JSON.stringify({'Status' : 'OK'}));
+	if(!errorDB){
+		response.send(JSON.stringify({'Status' : 'OK'}));
+	}else{
+		response.status(500).send(JSON.stringify({'error' : 'There was an internal server error'}));
+	}
 });
 
 server.listen(3000);

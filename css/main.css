@@ -52,6 +52,7 @@ h2.title-section{
 		display: none;
 	}
 	.cart-extended{
+		display: inherit;
 		padding-top: 53px;
 		height: 50px;
 	}
