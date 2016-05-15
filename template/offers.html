@@ -1,0 +1,35 @@
+<div class="offers" ng-if="!error">
+	<div class="row center-xs">
+		<h2 class="col-xs-12 title-section">Sports</h2>
+		<ul class="col-xs-12">
+			<div class="row">
+				<li ng-repeat="sport in catalogue.sports" class="col-xs-6 col-sm-3 col-md-3 sports">
+					<div>
+						<p>{{::sport.name}}</p>
+						<p>{{:: sport.price | currency}}</p>
+						<input type="checkbox" ng-change="addToCart(sport)" ng-model="sports.$index">
+					</div>
+				</li>
+			</div>
+		</ul>
+	</div>
+	<div class="row center-xs">
+		<h2 class="col-xs-12 title-section">News</h2>
+		<ul class="col-xs-12">
+			<div class="row">
+				<li ng-repeat="new in catalogue.news" class="col-xs-6 col-sm-3 col-md-3 sports">
+					<div>
+						<p>{{::new.name}}</p>
+						<p>{{:: new.price | currency}}</p>
+						<input type="checkbox" ng-change="addToCart(new)" ng-model="new.$index">
+					</div>
+				</li>
+			</div>
+		</ul>
+	</div>
+</div>
+<div ng-if="error">
+	<div class="row center-xs">
+		<h2 class="col-xs-9 margin-30">{{error}}</h2>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="cart">
+	<h2 class="row center-xs">{{model.cart.length}}</h2>
+	<button ng-disabled="model.cart.length < 1" ng-click="checkout()" style="width: 100%"> &gt; </button>
+</div>
+<div class="cart-extended">
+	<div class="cart-box">
+		<h2>Basket</h2>
+		<ul>
+			<li ng-repeat="item in model.cart">
+				<span>{{item.name}}</span>
+				<span>{{item.price | currency}}</span>
+			</li>
+		</ul>
+	</div>
+	<p>Total is: {{total() | currency}}</p>
+
+	<button ng-disabled="model.cart.length < 1" ng-click="checkout()">checkout</button>
+</div>
