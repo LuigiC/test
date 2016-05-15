@@ -1,15 +1,7 @@
-describe('Testing offersController', function(){
-	beforeEach(module('app'));
-	var $controller;
+describe("My App", function() {
 
-  	beforeEach(inject(function(_$controller_){
-    	// The injector unwraps the underscores (_) from around the parameter names when matching
-    	$controller = _$controller_;
-    }));
+it("Should have created an application controller", function(){
+      expect(1).toBe(1);
+    });
 
-	it('call customerLocationService', function(){
-		var $injector = angular.injector([ 'skyTest' ]);
-		var offersController = $injector.get('offersCtrl');
-		expect(offersController.addToCart()).toEqual(1);
-	})
-});
+})

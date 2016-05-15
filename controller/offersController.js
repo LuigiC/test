@@ -7,6 +7,10 @@
 			$scope.model.addToCart(item);
 		}
 
+		$scope.ciao = function(){
+			return 'ciao';
+		}
+
 		function getCatalogue(cid, lid){
 			catalogueService.getCatalogue(cid, lid).then(function(response){
 				$scope.catalogue = response.data;

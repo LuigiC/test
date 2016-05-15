@@ -12,6 +12,8 @@
   "author": "luigi",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.3.0",
     "express": "^4.13.4",
     "flexboxgrid": "^6.3.0"
   },
@@ -19,6 +21,7 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-jasmine": "^2.3.0",
+    "gulp-require-angular": "^0.7.1",
     "karma-jasmine": "^1.0.2"
   }
 }
